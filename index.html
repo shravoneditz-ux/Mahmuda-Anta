@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahmuda Aktar Anta - Profile</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Background Glow Effects */
+        .bg-glow-1 {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 77, 77, 0.15);
+            filter: blur(100px);
+            top: 10%;
+            left: 20%;
+            z-index: 0;
+            border-radius: 50%;
+        }
+
+        .bg-glow-2 {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            filter: blur(100px);
+            bottom: 10%;
+            right: 20%;
+            z-index: 0;
+            border-radius: 50%;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            background: rgba(20, 20, 20, 0.65);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 28px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            padding: 28px;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 25px;
+        }
+
+        .profile-img-container {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #ff4d4d;
+            box-shadow: 0 0 25px rgba(255, 77, 77, 0.5);
+            position: relative;
+            animation: pulseGlow 3s infinite;
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 15px rgba(255, 77, 77, 0.4); }
+            50% { box-shadow: 0 0 30px rgba(255, 77, 77, 0.7); }
+            100% { box-shadow: 0 0 15px rgba(255, 77, 77, 0.4); }
+        }
+
+        .profile-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-name {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+            margin-bottom: 4px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .profile-alias {
+            font-size: 13px;
+            color: #ff4d4d;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        /* Creator info nicely styled right under alias */
+        .creator-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 77, 77, 0.1);
+            border: 1px solid rgba(255, 77, 77, 0.25);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 11.5px;
+            color: #ffcccc;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(255, 77, 77, 0.15);
+        }
+
+        .creator-tag span {
+            color: #ff4d4d;
+            font-weight: 700;
+        }
+
+        .section-title {
+            font-size: 13.5px;
+            color: #ff4d4d;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin: 25px 0 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 6px;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 4px 16px;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 11px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            font-size: 13.5px;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: #aaaaaa;
+            font-weight: 400;
+        }
+
+        .info-value {
+            color: #ffffff;
+            font-weight: 500;
+            text-align: right;
+        }
+
+        .highlight {
+            color: #ff4d4d;
+            font-weight: 600;
+        }
+
+        .creator-btn-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .creator-main-btn {
+            background: linear-gradient(135deg, #ff4d4d, #b30000);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            border-radius: 16px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(255, 77, 77, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .creator-main-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255, 77, 77, 0.6);
+        }
+
+        .creator-drawer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), margin-top 0.4s ease-out;
+            background: rgba(15, 15, 15, 0.6);
+            border-radius: 16px;
+            margin-top: 0;
+            border: 1px solid transparent;
+        }
+
+        .creator-drawer.active {
+            max-height: 160px;
+            margin-top: 15px;
+            padding: 18px;
+            border: 1px solid rgba(255, 77, 77, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .creator-text {
+            font-size: 13px;
+            color: #dddddd;
+            margin-bottom: 14px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-btn {
+            flex: 1;
+            padding: 11px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .social-btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.95;
+        }
+
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: #ffffff;
+        }
+
+        .telegram-btn {
+            background: linear-gradient(135deg, #0088cc, #005f99);
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow-1"></div>
+    <div class="bg-glow-2"></div>
+
+    <div class="container">
+        <!-- Profile Header -->
+        <div class="profile-header">
+            <div class="profile-img-container">
+                <img src="https://i.ibb.co.com/bxy11f7/profile.jpg" alt="Mahmuda Aktar Anta">
+            </div>
+            <div class="profile-name">মাহমুদা আক্তার আন্তা</div>
+            <div class="profile-alias">ALIAS: আনু</div>
+            <div class="creator-tag">
+                Creator: <span>Mirajul Islam Shravon</span>
+            </div>
+        </div>
+
+        <!-- Core Identity -->
+        <div class="section-title">👤 Core Identity</div>
+        <div class="info-card">
+            <div class="info-row">
+                <span class="info-label">Full Name</span>
+                <span class="info-value">Mahmuda aktar anta</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Nickname</span>
+                <span class="info-value highlight">Anu</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Father's Name</span>
+                <span class="info-value">আলতাফ হোসেন</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Mother's Name</span>
+                <span class="info-value">মোছা বিউটি</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Date of Birth</span>
+                <span class="info-value">০৪/১২/২০১১</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Age</span>
+                <span class="info-value">১৪</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Gender</span>
+                <span class="info-value">Female</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Nationality</span>
+                <span class="info-value">Bangladesh</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Religion</span>
+                <span class="info-value">Islam</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Relationship</span>
+                <span class="info-value" style="color: #ff4d4d;">Single</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Blood Group</span>
+                <span class="info-value highlight">B+</span>
+            </div>
+        </div>
+
+        <!-- Family & Location -->
+        <div class="section-title">🏠 Family & Location</div>
+        <div class="info-card">
+            <div class="info-row">
+                <span class="info-label">Total Siblings</span>
+                <span class="info-value">২ জন</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Village/Mahalla</span>
+                <span class="info-value">মির্জানগর</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Post Office</span>
+                <span class="info-value">দক্ষিণ চাঁদপুর</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Union</span>
+                <span class="info-value">হারুকান্দি</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Upazila/Thana</span>
+                <span class="info-value">হরিরামপুর</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">District</span>
+                <span class="info-value">মানিকগঞ্জ</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Division</span>
+                <span class="info-value">ঢাকা</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Current Address</span>
+                <span class="info-value">সাভার</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Permanent Address</span>
+                <span class="info-value">জামাই এর বাড়ি 🙂</span>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="section-title">🎓 Education</div>
+        <div class="info-card">
+            <div class="info-row">
+                <span class="info-label">Institution</span>
+                <span class="info-value">দোসাইদ অধন্য কুমার স্কুল এন্ড কলেজ</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Class/Year</span>
+                <span class="info-value">9</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Group</span>
+                <span class="info-value">Science</span>
+            </div>
+        </div>
+
+        <!-- Preferences & Dreams -->
+        <div class="section-title">✨ Preferences & Dreams</div>
+        <div class="info-card">
+            <div class="info-row">
+                <span class="info-label">Favorite Flower</span>
+                <span class="info-value">Black Rose</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Favorite Bird</span>
+                <span class="info-value">Sparrow</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Favorite Colors</span>
+                <span class="info-value highlight">সাদা, কালা</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Favorite Food</span>
+                <span class="info-value">পায়েস</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Favorite Fruit</span>
+                <span class="info-value">আম</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Favorite Season</span>
+                <span class="info-value">শীত</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Favorite Place</span>
+                <span class="info-value">আপুর বাসা</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Favorite Song</span>
+                <span class="info-value">Tu Hi Haqikat</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Favorite Singer</span>
+                <span class="info-value">অরিজিত সিং</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Favorite Movie/Series</span>
+                <span class="info-value">All of Us Are Dead</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Favorite Actor/Actress</span>
+                <span class="info-value">বাংলাদেশ নাই 😒</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Favorite Hobby</span>
+                <span class="info-value">লাফালাফি</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Favorite Animal</span>
+                <span class="info-value">বিড়াল 🐈</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Favorite Outfit</span>
+                <span class="info-value">শাড়ি</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Favorite Book</span>
+                <span class="info-value">উপন্যাস 🥲</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Favorite Game</span>
+                <span class="info-value">জানি না</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Favorite Subject</span>
+                <span class="info-value">গণিত</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Favorite Smell</span>
+                <span class="info-value">জামাই এর</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Favorite Tree</span>
+                <span class="info-value">চেরি ব্লসম</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Most Favorite Person</span>
+                <span class="info-value" style="color: #ff4d4d;">Best Friend 🫶🥹</span>
+            </div>
+        </div>
+
+        <!-- Creator Button Section -->
+        <div class="creator-btn-container">
+            <button class="creator-main-btn" onclick="toggleCreator()">Creator Information</button>
+            <div class="creator-drawer" id="creatorDrawer">
+                <div class="creator-text">
+                    Creator - Mirajul Islam Shravon. Eirokom Unick Page Creat Korte Niche Dewa Whatsapp / Telegram e Msg Din
+                </div>
+                <div class="social-buttons">
+                    <a href="https://wa.me/8801883536835" target="_blank" class="social-btn whatsapp-btn">
+                        <span>WhatsApp</span>
+                    </a>
+                    <a href="https://t.me/mirajul_islam_official" target="_blank" class="social-btn telegram-btn">
+                        <span>Telegram</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleCreator() {
+            const drawer = document.getElementById('creatorDrawer');
+            drawer.classList.toggle('active');
+        }
+    </script>
+</body>
+  </html>
